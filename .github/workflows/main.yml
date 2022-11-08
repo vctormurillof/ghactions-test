@@ -34,3 +34,6 @@ jobs:
     - name: Package
       run: python -m build
       working-directory: ./python-example-app
+    
+    - name: Deploy Pypi
+      run: python -m twine upload dist/* --skip-existing -u ${{ secrets.PYPI_CREDENTIALS_USR }} -p ${{ secrets.PYPI_CREDENTIALS_PSW }}
